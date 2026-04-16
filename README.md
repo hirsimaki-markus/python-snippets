@@ -113,6 +113,22 @@ def once(func):
 
 
 
+
+<details>
+  <summary>Get prettyprinted dict from WSL >>> session to windows clipboard</summary>
+
+```python
+import subprocess, pprint
+def clip(obj):
+    subprocess.run(["clip.exe"], input=pprint.pformat(obj).encode())
+```
+
+</details>
+
+
+
+
+
 <details>
   <summary>Mouse click support in terminal demo</summary>
 
