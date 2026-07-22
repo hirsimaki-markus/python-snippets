@@ -160,3 +160,35 @@ if __name__ == "__main__":  # xterm mouse click support demo
 ```
 
 </details>
+
+
+
+
+
+<details>
+  <summary>Trivial benchmark</summary>
+
+```python
+def fibonacci_benchmark(rows=10, cols=128):
+    # Start timer
+    start = __import__("time").perf_counter()
+    # Total digits to generate
+    total_digits = rows * cols
+    # Build concatenated digit stream
+    digits, a, b = [], 0, 1
+    while len(digits) < total_digits:
+        # Append current Fibonacci number as digits
+        digits.extend(str(a))
+        # Advance sequence
+        a, b = b, a + b
+    # Keep only the required number of digits
+    stream = "".join(digits[:total_digits])
+    # Print fixed-width rows
+    for i in range(rows):
+        print(stream[i * cols:(i + 1) * cols])
+    # Print elapsed time
+    print(f"\nTime taken: {__import__('time').perf_counter() - start:.6f} seconds")
+fibonacci_benchmark()
+```
+
+</details>
